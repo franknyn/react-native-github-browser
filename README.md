@@ -11,6 +11,7 @@ Based on:
 -NavigatorIOS
 -TabBarIOS
 -ListView
+-ESLint with airbnb
 
 ### Install:
 ```

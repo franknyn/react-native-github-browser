@@ -5,33 +5,32 @@ import {
     ListView,
     ActivityIndicator,
     Image,
-    TouchableHighlight
+    TouchableHighlight,
 } from 'react-native';
 
 import moment from 'moment';
-import PushPayload from './PushPayload.js';
+import PushPayload from './PushPayload';
 
 
 export default class Feed extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
 
-        var ds = new ListView.DataSource({
-            rowHasChanged: (r1, r2) => r1 != r2
+        const ds = new ListView.DataSource({
+            rowHasChanged: (r1, r2) => r1 !== r2,
         });
 
         this.state = {
             dataSource: ds,
-            showProgress: true
+            showProgress: true,
         };
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.fetchFeed();
     }
 
-    fetchFeed(){
-
+    fetchFeed() {
         require('./AuthService').getAuthInfo((err, authInfo)=> {
             var url = 'https://api.github.com/users/'
                 + authInfo.user.login
@@ -63,7 +62,7 @@ export default class Feed extends Component {
             }
         });
     }
-    
+
     renderRow(rowData){
         return (
             <TouchableHighlight

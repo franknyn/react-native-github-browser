@@ -9,8 +9,6 @@ import {
     StyleSheet
 } from 'react-native';
 
-
-
 export default class SearchResults extends Component {
     constructor(props){
         super(props);
